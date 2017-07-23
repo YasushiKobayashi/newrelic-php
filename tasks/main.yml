@@ -4,12 +4,13 @@
   yum: name=newrelic-php5
 
 - name: set api key
-  command: newrelic-install install
-  responses:
-    'New': "{{ newrelic_api_key }}"
+  lineinfile: >
+    dest=/etc/php.d/newrelic.ini
+    regexp='newrelic.license\:'
+    line="newrelic.license = {{ newrelic_api_key }}"
 
 - name: set app name
   lineinfile: >
     dest=/etc/php.d/newrelic.ini
     regexp='newrelic.appname\:'
-    line="newrelic.appname = {{ newrelic_app_name  }}"
+    line="newrelic.appname = {{ newrelic_app_name }}"
