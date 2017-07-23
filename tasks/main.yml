@@ -9,7 +9,7 @@
     'New': "{{ newrelic_api_key }}"
 
 - name: set app name
-    lineinfile: >
+  lineinfile: >
     dest=/etc/php.d/newrelic.ini
     regexp='newrelic.appname\:'
     line="newrelic.appname = {{ newrelic_app_name  }}"
