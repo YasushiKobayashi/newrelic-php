@@ -1,4 +1,6 @@
 - hosts: master
+  roles:
+    - YasushiKobayashi.newrelic
   vars:
     newrelic_api_key: xxx
     newrelic_app_name: xxx
