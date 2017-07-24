@@ -8,4 +8,5 @@ RUN ansible-galaxy install YasushiKobayashi.newrelic
 
 WORKDIR /ansible
 COPY ./ /ansible
+RUN ansible-playbook -i docker/hosts newrelic.yml
 RUN ansible-playbook -i docker/hosts main.yml
