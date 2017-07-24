@@ -8,9 +8,11 @@
     dest=/etc/php.d/newrelic.ini
     regexp='^newrelic.license = "REPLACE_WITH_REAL_KEY"'
     replace="newrelic.license = {{ newrelic_api_key }}"
+  when: newrelic_api_key is defined
 
 - name: set app name
   replace: >
     dest=/etc/php.d/newrelic.ini
     regexp='^newrelic.appname = "PHP Application"'
     replace="newrelic.appname = {{ newrelic_app_name }}"
+  when: newrelic_app_name is defined
